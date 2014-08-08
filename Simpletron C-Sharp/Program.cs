@@ -8,7 +8,6 @@ namespace Simpletron
 {
     class Program
     {
-        // Main entry point
         static void Main(string[] args)
         {
             Console.WriteLine("*** Welcome to Simpletron! ***");
@@ -18,22 +17,34 @@ namespace Simpletron
             Console.WriteLine("*** number and a question mark (?). You ***");
             Console.WriteLine("*** type the word for that location. Press the ***");
             Console.WriteLine("*** Done button to stop entering your program. ***");
+            Console.WriteLine();
 
             int count = 0;
-            string input;
+            int input;
+
+            // initialize memory
+            Simpletron simpletron = new Simpletron();
+
             do
             {
                 Simpletron.PrintOuput(count);
-                input = Console.ReadLine();
-
-                Simpletron.Parse(input);
+                input = int.Parse(Console.ReadLine());
+                Simpletron.memory[count] = input;
                 count++;
 
-            } while (input != "-99999");
+            } while (input != -99999);
 
-            Console.WriteLine("*** Program loading completed ***");
-            Console.WriteLine("*** Program execution begins ***");
+            if (input == -99999)
+            {
+                Console.WriteLine();
+                Console.WriteLine("*** Program loading completed ***");
+                Console.WriteLine("*** Program execution begins ***");
+                Console.WriteLine();
+            }
 
+            Simpletron.ExecuteProgram();
+
+            count++;
             Console.ReadLine();
         }
     }

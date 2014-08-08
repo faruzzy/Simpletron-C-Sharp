@@ -28,14 +28,17 @@ namespace Simpletron
         const int BRANCHZERO = 42;
         const int HALT = 43;
 
+        private static int instructionRegister = 0;
         private static int accumulator = 0;
-        private static String[] memory;
+        private static int instructionCounter = 0;
+        private static int operationCode = 0;
+        private static int operand = 0;
 
-        public Simpletron()
+        public static int[] memory;
+        public Simpletron() 
         {
-            memory = new String[100];
+            memory = new int[100];
         }
-
 
         public static void PrintOuput(int n)
         {
@@ -51,36 +54,55 @@ namespace Simpletron
                 return int.Parse(location);
         }
 
-        public static void Parse(string s)
+        public static void ExecuteProgram()
         {
-            int operation = int.Parse(s.Substring(1, 2));
-            int location = int.Parse(s.Substring(3, 4));
+            while(instructionCounter < memory.Length)
+            {
+                instructionRegister = memory[instructionCounter];
 
-            switch (operation)
+                Parse(instructionRegister);
+                if (instructionRegister == 4300)
+                    break;
+
+                instructionCounter++;
+            }
+        }
+
+        private static void Parse(int instructionRegister)
+        {
+            operationCode = instructionRegister / 100;
+            operand = instructionRegister % 100;
+
+            switch (operationCode)
             {
                 case READ:
-                    memory[location] = Console.ReadLine();
+                    Console.Write("Enter an Integer: ");
+                    memory[operand] = int.Parse(Console.ReadLine());
                     break;
                 case WRITE:
-                    Console.WriteLine(memory[location]);
+                    Console.WriteLine(memory[operand]);
+                    Console.WriteLine();
                     break;
                 case LOAD:
-                    accumulator += int.Parse(memory[location]);
+                    accumulator += memory[operand];
                     break;
                 case STORE:
-                    memory[location] = accumulator + "";
+                    memory[operand] = accumulator;
                     break;
                 case ADD:
-                    accumulator += int.Parse(memory[location]);
+                    accumulator += memory[operand];
                     break;
                 case SUBSTRACT:
-                    accumulator -= int.Parse(memory[location]);
+                    accumulator -= memory[operand];
                     break;
                 case DIVIDE:
-                    accumulator /= int.Parse(memory[location]);
+                    accumulator /= memory[operand];
                     break;
                 case MULTIPLY:
-                    accumulator *= int.Parse(memory[location]);
+                    accumulator *= memory[operand];
+                    break;
+                case HALT:
+                    Console.WriteLine("*** Simpletron execution terminated ***");
                     break;
             }
         }

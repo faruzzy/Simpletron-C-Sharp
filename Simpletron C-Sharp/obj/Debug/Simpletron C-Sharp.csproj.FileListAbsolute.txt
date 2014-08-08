@@ -1,2 +1,7 @@
 C:\Users\szd0qs\Documents\GitHub\Simpletron\Simpletron C-Sharp\bin\Debug\Simpletron C-Sharp.exe.config
 C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\bin\Debug\Simpletron C-Sharp.exe.config
+C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\bin\Debug\Simpletron C-Sharp.exe
+C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\bin\Debug\Simpletron C-Sharp.pdb
+C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\obj\Debug\Simpletron C-Sharp.csprojResolveAssemblyReference.cache
+C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\obj\Debug\Simpletron C-Sharp.exe
+C:\Users\szd0qs\Documents\GitHub\Simpletron C-Sharp\Simpletron C-Sharp\obj\Debug\Simpletron C-Sharp.pdb
