@@ -34,24 +34,12 @@ namespace Simpletron
         private static int operationCode = 0;
         private static int operand = 0;
 
-        public static int[] memory;
-        public Simpletron() 
-        {
-            memory = new int[100];
-        }
+		public static int[] memory = new int[100];
 
         public static void PrintOuput(int n)
         {
             int x = n / 10;
             Console.Write("{0}{1} ? ", x, n);
-        }
-
-        private int getMemoryLocation(string location)
-        {
-            if (location[0].Equals('0'))
-                return int.Parse(location[1].ToString());
-            else
-                return int.Parse(location);
         }
 
         public static void ExecuteProgram()
@@ -60,7 +48,7 @@ namespace Simpletron
             {
                 instructionRegister = memory[instructionCounter];
 
-                Parse(instructionRegister);
+				DetermineOperation(instructionRegister);
                 if (instructionRegister == 4300)
                     break;
 
@@ -68,7 +56,7 @@ namespace Simpletron
             }
         }
 
-        private static void Parse(int instructionRegister)
+        private static void DetermineOperation(int instructionRegister)
         {
             operationCode = instructionRegister / 100;
             operand = instructionRegister % 100;

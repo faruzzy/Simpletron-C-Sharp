@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,20 +9,17 @@ namespace Simpletron
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("*** Welcome to Simpletron! ***");
-            Console.WriteLine("*** Please enter your program one instruction ***");
-            Console.WriteLine("*** (or data word) at a time into the input ***");
-            Console.WriteLine("*** text field. I will display the location ***");
-            Console.WriteLine("*** number and a question mark (?). You ***");
+            Console.WriteLine("***            Welcome to Simpletron!          ***");
+            Console.WriteLine("*** Please enter your program one instruction  ***");
+            Console.WriteLine("*** (or data word) at a time into the input    ***");
+            Console.WriteLine("*** text field. I will display the location    ***");
+            Console.WriteLine("*** number and a question mark (?). You        ***");
             Console.WriteLine("*** type the word for that location. Press the ***");
             Console.WriteLine("*** Done button to stop entering your program. ***");
             Console.WriteLine();
 
             int count = 0;
             int input;
-
-            // initialize memory
-            Simpletron simpletron = new Simpletron();
 
             do
             {
@@ -34,13 +30,10 @@ namespace Simpletron
 
             } while (input != -99999);
 
-            if (input == -99999)
-            {
-                Console.WriteLine();
-                Console.WriteLine("*** Program loading completed ***");
-                Console.WriteLine("*** Program execution begins ***");
-                Console.WriteLine();
-            }
+            Console.WriteLine();
+            Console.WriteLine("*** Program loading completed ***");
+            Console.WriteLine("*** Program execution begins ***");
+            Console.WriteLine();
 
             Simpletron.ExecuteProgram();
 
